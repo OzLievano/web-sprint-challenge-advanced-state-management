@@ -1,6 +1,7 @@
 import React from 'react'
 import {loadSmurfData} from '../actions/index'
 import {connect} from 'react-redux'
+import {Container,Col,Row,Card,CardHeader,CardBody} from 'reactstrap'
 
 const SmurfList = (props) => {
     console.log(props)
@@ -11,13 +12,18 @@ const SmurfList = (props) => {
     return (
         <div>
             <button onClick={handleClick}>Load Smurfs</button>
+            <br/>
             {props.smurfs.map((smurf,index)=>{
                 return (
-                    <div key={index}>
-                        <h1>{smurf.name}</h1>
-                        <h2>{smurf.age}</h2>
-                        <h3>{smurf.height}</h3>
-                    </div>
+                    <Container className="mt-3">
+                        <Row md="4">
+                            <Col md={{ size: 6, offset: 3 }}>
+                                <Card>
+                                    <CardHeader>{smurf.name}</CardHeader>
+                                </Card>
+                            </Col>
+                        </Row>
+                    </Container>
                 )
             })}
         </div>

@@ -1,6 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import thunk from 'redux-thunk'
 import {createStore,applyMiddleware} from 'redux'
 import {smurfReducer} from '../src/reducers/index'

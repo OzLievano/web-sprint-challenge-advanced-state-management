@@ -43,30 +43,29 @@ class App extends Component {
                   <div>Have fun!</div>
                   
                   <form>
-                    <input
+                    Smurf Name:<input
                       type="text"
                       name="name"
                       placeholder="name"
                       value={this.state.smurf.name}
                       onChange={this.handleChange}
-                    />
-                    <input
+                    /><br/>
+                    Smurf Age:<input
                       type="number"
                       name="age"
                       placeholder="age"
                       value={this.state.smurf.age}
                       onChange={this.handleChange}
-                    />
-                    <input
+                    /><br/>
+                    Smurf Height:<input
                       type="text"
                       name="height"
                       placeholder="height"
                       value={this.state.smurf.height}
                       onChange={this.handleChange}
-                    />
-                    <button onClick={this.handleSubmit}>Add Smurf</button>
+                    /><br/>
+                    <button onClick={this.handleSubmit}>Add Smurf</button><br/>
                   </form>
-
                   <SmurfList/>
                 </>
       </div>
@@ -74,11 +73,6 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    smurfs:state.smurfs,
-    isLoading:state.isLoading,
-    error: state.error
-  }
-}
-export default connect(mapStateToProps,{addSmurf})(App);
+export default connect(() => {
+  return {};
+},{addSmurf})(App);
