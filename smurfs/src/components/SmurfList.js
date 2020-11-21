@@ -15,7 +15,7 @@ const SmurfList = (props) => {
             <br/>
             {props.smurfs.map((smurf,index)=>{
                 return (
-                    <Container className="mt-3">
+                    <Container className="mt-3" xs="3">
                         <Row md="4">
                             <Col md={{ size: 6, offset: 3 }}>
                                 <Card>
