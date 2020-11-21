@@ -24,10 +24,26 @@ Commit your code regularly and meaningfully. This helps both you (in case you ev
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
 1. What problem does the context API help solve?
+  The Context API allows us as developers a more efficient way to pass data to components without having to prop drill. This is typically used when nested components share data with other components in the component tree. A side effect is that it makes component reusability harder.
+
 2. In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
+  The store contains our application wide data in its initial state. Its the single source of truth as it will contain the original state of the data that we are working with.
+
+  Actions are 'describers' as to what is happening inside of the Application. Actions take a type and a payload and serve our vehicles to transition data from one moment to another. 
+
+  Reducers receive information from actions are then determine if and how they will change our application's state. for instance we can have an action creator to write to a DB and in our Reducer we are updating the state of our applications data witht that newly created object.
+
 3. What is the difference between Application state and Component state? When would be a good time to use one over the other?
+  Component state can be used when working with forms, or the state mentioned in that single component will not be leveraged anywhere else.
+
+  We defer to application state when we have multiple props that are leveraging same or similar pieces of that state. 
+
 4. Describe `redux-thunk`, what does it allow us to do? How does it change our `action-creators`?
+  Redux-thunk allows our action creators to take a dispatch function to return another function. This can allow us to do synchrounous events  once the asynchrnous portions of our code have ran.
+
 5. What is your favorite state management system you've learned and this sprint? Please explain why!
+
+  My favorite state management system that I've learned has been Redux - while its more difficult - it is clear to see how state is changing throughout the application. Provider and Consumer was by far the easiest but the lack of reusability is not that great.
 
 You are expected to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade. 
 
