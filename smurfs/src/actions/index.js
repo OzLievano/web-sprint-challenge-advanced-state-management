@@ -5,9 +5,10 @@ export const DATA_FETCHED = "DATA_FETCHED"
 export const FETCH_ERROR = "FETCH_ERROR"
 export const POST_DATA = 'POST_DATA'
 
+const apiURL = 'http://localhost:3333/smurfs' 
+
 export const loadSmurfData = () => (dispatch) => {
     console.log('ol: index.js actions: dispatch',dispatch)
-    const apiURL = 'http://localhost:3333/smurfs'
 
     dispatch({
         type:IS_LOADING
@@ -25,4 +26,14 @@ export const loadSmurfData = () => (dispatch) => {
             payload:`error fetching data: ${err.message}`
         })
     })
+}
+
+export const addSmurf = (smurf) => (dispatch) => {
+    axios
+    .post(apiURL,smurf)
+    .then((res)=> dispatch({type:POST_DATA, payload:res.data}))
+    .catch((err)=> dispatch({
+        type:FETCH_ERROR,
+        payload:`error fetching data: ${err.message}`
+    }) )
 }

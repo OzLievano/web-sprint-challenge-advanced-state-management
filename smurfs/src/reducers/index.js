@@ -17,17 +17,19 @@ export const smurfReducer = (state=initialState,action) => {
         case DATA_FETCHED:
             return {
                 ...state,
-                smurfs: action.payload
+                smurfs: action.payload,
+                isLoading:false
             }
         case FETCH_ERROR:
             return{
                 ...state,
-                error: action.payload
+                isLoading:false,
+                error: action.payload.message
             }
         case POST_DATA:
             return{
                 ...state,
-                smurfs:[...state.smurfs,action.payload]
+                smurfs:action.payload
             }
         default:
             return state
