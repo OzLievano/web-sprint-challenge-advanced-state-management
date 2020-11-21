@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import "./App.css";
 import {connect} from 'react-redux'
-import {addSmurf, loadSmurfData} from '../actions/index'
+import {addSmurf} from '../actions/index'
+import SmurfList from "./SmurfList";
 
 const initialState = {
   name: "",
@@ -16,10 +17,6 @@ class App extends Component {
     this.state = {
       smurf: initialState,
     };
-  }
-
-  componentDidMount() {
-    this.props.loadSmurfData();
   }
 
   handleChange = (e) => {
@@ -70,13 +67,7 @@ class App extends Component {
                     <button onClick={this.handleSubmit}>Add Smurf</button>
                   </form>
 
-                  {this.props.smurfs.map((smurf)=>{
-                    return (
-                      <div key={smurf.id}>
-                        {smurf.name}
-                      </div>
-                    )
-                  })}
+                  <SmurfList/>
                 </>
       </div>
     );
@@ -90,4 +81,4 @@ const mapStateToProps = state => {
     error: state.error
   }
 }
-export default connect(mapStateToProps,{addSmurf,loadSmurfData})(App);
+export default connect(mapStateToProps,{addSmurf})(App);
