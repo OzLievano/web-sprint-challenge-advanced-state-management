@@ -1,4 +1,4 @@
-import {IS_LOADING,DATA_FETCHED,FETCH_ERROR} from '../actions/index'
+import {IS_LOADING,DATA_FETCHED,FETCH_ERROR, POST_DATA} from '../actions/index'
 const initialState = {
     smurfs: [],
     isLoading:false,
@@ -23,6 +23,11 @@ export const smurfReducer = (state=initialState,action) => {
             return{
                 ...state,
                 error: action.payload
+            }
+        case POST_DATA:
+            return{
+                ...state,
+                smurfs:[...state.smurfs,action.payload]
             }
         default:
             return state

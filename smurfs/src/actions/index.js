@@ -3,6 +3,7 @@ import axios from 'axios'
 export const IS_LOADING = "IS_LOADING"
 export const DATA_FETCHED = "DATA_FETCHED"
 export const FETCH_ERROR = "FETCH_ERROR"
+export const POST_DATA = 'POST_DATA'
 
 export const loadSmurfData = () => (dispatch) => {
     console.log('ol: index.js actions: dispatch',dispatch)
