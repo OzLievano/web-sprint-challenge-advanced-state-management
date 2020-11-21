@@ -5,7 +5,7 @@ import {addSmurf, loadSmurfData} from '../actions/index'
 
 const initialState = {
   name: "",
-  age: "",
+  age: 0,
   height: "",
   id: null,
 };
@@ -23,10 +23,8 @@ class App extends Component {
   }
 
   handleChange = (e) => {
-    const value =
-      e.target.name === "age" ? Number(e.target.value) : e.target.value;
     this.setState({
-      smurf: { ...this.state.smurf, [e.target.name]: value },
+      smurf: { ...this.state.smurf, [e.target.name]: e.target.value },
     });
   };
 
@@ -56,7 +54,7 @@ class App extends Component {
                       onChange={this.handleChange}
                     />
                     <input
-                      type="text"
+                      type="number"
                       name="age"
                       placeholder="age"
                       value={this.state.smurf.age}
@@ -71,6 +69,14 @@ class App extends Component {
                     />
                     <button onClick={this.handleSubmit}>Add Smurf</button>
                   </form>
+
+                  {this.props.smurfs.map((smurf)=>{
+                    return (
+                      <div key={smurf.id}>
+                        {smurf.name}
+                      </div>
+                    )
+                  })}
                 </>
       </div>
     );
