@@ -1,4 +1,4 @@
-export {IS_LOADING,DATA_FETCHED,FETCH_ERROR} from '../actions/index'
+import {IS_LOADING,DATA_FETCHED,FETCH_ERROR} from '../actions/index'
 const initialState = {
     smurfs: [],
     isLoading:false,
